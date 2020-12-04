@@ -72,6 +72,19 @@ RUN cd /usr/src \
       && make \
       && make install
 
+ARG LIBDE265_VERSION=1.0.8
+ARG LIBDE265_URL=https://github.com/strukturag/libde265/releases/download/
+
+RUN cd /usr/src \
+      && wget ${LIBDE265_URL}/v${LIBDE265_VERSION}/libde265-${LIBDE265_VERSION}.tar.gz \
+      && tar xf libde265-${LIBDE265_VERSION}.tar.gz \
+      && cd libde265-${LIBDE265_VERSION} \
+      && export PKG_CONFIG_PATH=/usr/src/vips/lib/pkgconfig \
+      && ./autogen.sh \
+      && ./configure --prefix=/usr/src/vips \
+      && make \
+      && make install
+
 ARG HEIF_VERSION=1.8.0
 ARG HEIF_URL=https://github.com/strukturag/libheif/releases/download
 
