@@ -92,6 +92,7 @@ RUN cd /usr/src \
       && wget ${HEIF_URL}/v${HEIF_VERSION}/libheif-${HEIF_VERSION}.tar.gz \
       && tar xf libheif-${HEIF_VERSION}.tar.gz \
       && cd libheif-${HEIF_VERSION} \
+      && export PKG_CONFIG_PATH=/usr/src/vips/lib/pkgconfig \
       && ./autogen.sh \
       && ./configure --prefix=/usr/src/vips \
       && make \
