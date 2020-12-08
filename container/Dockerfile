@@ -82,7 +82,7 @@ RUN cd /usr/src \
       && export PKG_CONFIG_PATH=/usr/src/vips/lib/pkgconfig \
       && ./autogen.sh \
       && ./configure --prefix=/usr/src/vips \
-      && make \
+      && PKG_CONFIG_PATH=/usr/src/vips/lib/pkgconfig make \
       && make install
 
 ARG HEIF_VERSION=1.8.0
@@ -95,7 +95,7 @@ RUN cd /usr/src \
       && export PKG_CONFIG_PATH=/usr/src/vips/lib/pkgconfig \
       && ./autogen.sh \
       && ./configure --prefix=/usr/src/vips \
-      && make \
+      && PKG_CONFIG_PATH=/usr/src/vips/lib/pkgconfig make \
       && make install
 
 ARG WEBP_VERSION=1.1.0
